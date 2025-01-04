@@ -1,9 +1,12 @@
 import openai
 from flask import Flask, render_template, request, jsonify
 from main import chat_with_gpt, chat_history  # Import from main.py
+from dotenv import load_dotenv
+import os
 
 # OpenAI API key (ensure you are not sharing this key in public repositories)
-openai.api_key = "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"
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
 
